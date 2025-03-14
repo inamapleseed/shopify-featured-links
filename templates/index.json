@@ -30,15 +30,24 @@
         "link_Tfqpx7": {
           "type": "link",
           "settings": {
+            "link_url": "shopify://collections/friends",
+            "link_label": "Footwear"
+          }
+        },
+        "link_AFWVX6": {
+          "type": "link",
+          "settings": {
             "link_url": "",
-            "link_label": "Link"
+            "link_label": "Accessories",
+            "block_image": "shopify://shop_images/blue_french_horn.webp"
           }
         }
       },
       "block_order": [
         "link_eTzHgY",
         "link_PWGQTz",
-        "link_Tfqpx7"
+        "link_Tfqpx7",
+        "link_AFWVX6"
       ],
       "settings": {
         "heading": "Explore our collections",

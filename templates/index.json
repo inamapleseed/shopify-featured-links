@@ -22,7 +22,6 @@
         },
         "link_PWGQTz": {
           "type": "link",
-          "disabled": true,
           "settings": {
             "link_url": "",
             "link_label": "Bottoms"
@@ -30,7 +29,6 @@
         },
         "link_Tfqpx7": {
           "type": "link",
-          "disabled": true,
           "settings": {
             "link_url": "shopify://collections/friends",
             "link_label": "Footwear"
@@ -38,7 +36,6 @@
         },
         "link_AFWVX6": {
           "type": "link",
-          "disabled": true,
           "settings": {
             "link_url": "",
             "link_label": "Accessories",
@@ -47,7 +44,6 @@
         },
         "link_kj7BWj": {
           "type": "link",
-          "disabled": true,
           "settings": {
             "link_url": "shopify://collections/friends",
             "link_label": "Sale"
@@ -64,7 +60,7 @@
       "settings": {
         "heading": "Explore our collections",
         "button_url": "shopify://collections/bedroom",
-        "button_label": "Shop all categories",
+        "button_label": "Shop all",
         "link_text_size": 36,
         "link_text_color": "",
         "link_text_case": "uppercase"

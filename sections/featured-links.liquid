@@ -1,116 +1,238 @@
+{{ 'featured-links.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .link__text {
+    font-size: {{ section.settings.link_text_size }}px;
+  }
+  .link__image-outer-mobile {
+    height: {{ section.settings.link_text_size }}px;
+  }
+{% endstyle %}
+
+<section class="section__featured-links">
+  <div class="text_links">
+    {% if section.settings.heading != '' %}
+      <h2>{{  section.settings.heading }}</h2>
+    {% endif %}
+
+    {%  if section.blocks != '' or section.settings.button_url != '' and section.settings.button_label != '' %}
+      <div class="links__outer {% if section.settings.link_text_case %}links__{{ section.settings.link_text_case }}{% endif %}">
+        
+        {% for block in section.blocks %}
+          <div class="link__item">
+            {% if block.settings.block_image %}
+              <div class="link__image-outer-mobile">
+                {% assign block_image_height = block.settings.block_image.width | divided_by: block.settings.block_image.aspect_ratio %}
+
+                {{
+                  block.settings.block_image
+                  | image_url: width: 200
+                  | image_tag:
+                    width: block.settings.block_image.width,
+                    height: block_image_height
+                }}
+              </div>
+            {% else %}
+              <div class="link__image-outer-mobile link__placeholder">
+                {% assign placeholder_index = forloop.index | modulo: 5 %}
+                {% case placeholder_index %}
+                  {% when 1 %}
+                    {{ 'collection-apparel-1' | placeholder_svg_tag }}
+                  {% when 2 %}
+                    {{ 'collection-apparel-4' | placeholder_svg_tag }}
+                  {% when 3 %}
+                    {{ 'collection-apparel-2' | placeholder_svg_tag }}
+                  {% when 4 %}
+                    {{ 'collection-apparel-3' | placeholder_svg_tag }}
+                  {% else %}
+                    {{ 'detailed-apparel-1' | placeholder_svg_tag }}
+                {% endcase %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.link_url != '' and block.settings.link_label != '' %}
+              <a href="{{ block.settings.link_url }}" class="link__text  color-{{ section.settings.link_text_color }}">{{ block.settings.link_label }}</a>
+            {%  endif %}
+          </div>
+        {% endfor %}
+
+        {% if section.settings.button_url != '' and section.settings.button_label != '' %}
+          <div class="link__item link__button">
+            <a href="{{ section.settings.button_url }}" class=" link__button-text button--primary button">{{ section.settings.button_label }}</a>
+          </div>
+        {% endif %}
+        
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- desktop -->
+  <div class="link__image-desktop-container">
+    {% if section.settings.default_image %}
+      {% assign image_height = section.settings.default_image.width | divided_by: section.settings.default_image.aspect_ratio %}
+      <div class=" default-image active">
+        {{
+          section.settings.default_image
+          | image_url: width: 1500
+          | image_tag:
+            width: section.settings.default_image.width,
+            height: image_height
+        }}
+      </div>
+    {% else %}
+      <div class="link__image-desktop default-image active">
+        {{ 'collection-apparel-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+    
+    {% for block in section.blocks %}
+      {% if block.settings.block_image %}
+        {% assign block_image_height = block.settings.block_image.width | divided_by: block.settings.block_image.aspect_ratio %}
+        <div class="link__image-desktop link__image-desktop-{{ forloop.index0 }}">
+          {{
+            block.settings.block_image
+            | image_url: width: 1500
+            | image_tag:
+              width: block.settings.block_image.width,
+              height: block_image_height
+          }}
+        </div>
+      {% else %}
+        <div class="link__image-desktop link__image-desktop-{{ forloop.index0 }}">
+          {% assign placeholder_index = forloop.index | modulo: 5 %}
+          {% case placeholder_index %}
+              {% when 1 %}
+                {{ 'collection-apparel-1' | placeholder_svg_tag }}
+              {% when 2 %}
+                {{ 'collection-apparel-4' | placeholder_svg_tag }}
+              {% when 3 %}
+                {{ 'collection-apparel-2' | placeholder_svg_tag }}
+              {% when 4 %}
+                {{ 'collection-apparel-3' | placeholder_svg_tag }}
+              {% else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag }}
+          {% endcase %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{{ 'featured-links.js' | asset_url | script_tag }}
+
 {% schema %}
-    {
-      "name": "Featured Links",
-      "settings": [
-        {
-          "type": "header",
-          "content": "Header"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Explore our collections",
-          "label": "Heading"
-        },
-        {
-          "type": "header",
-          "content": "Button"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button Link"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "Shop all categories"
-        },
-        {
-          "type": "header",
-          "content": "Image Showcase"
-        },
-        {
-          "type": "image_picker",
-          "id": "default_image",
-          "label": "Default Image"
-        },
-        {
-          "type": "header",
-          "content": "Link Settings"
-        },
-        {
-          "type": "range",
-          "id": "link_text_size",
-          "default": 36,
-          "label": "Link Text Size",
-          "step": 1,
-          "min": 10,
-          "max": 40
-        },
-        {
-          "type": "color_scheme",
-          "id": "link_text_color",
-          "label": "Link Text Color"
-        },
-        {
-          "type": "select",
-          "id": "link_text_case",
-          "label": "Link Text Case",
-          "options": [
-            {
-              "value": "default",
-              "label": "Default"
-            },
-            {
-              "value": "capitalize",
-              "label": "Capitalize"
-            },
-            {
-              "value": "uppercase",
-              "label": "Uppercase"
-            },
-            {
-              "value": "lowercase",
-              "label": "Lowercase"
-            }
-          ]
-        }
-      ],
-      "blocks": [
-        {
-          "type": "link",
-          "name": "link",
-          "settings": [
-            {
-              "type": "url",
-              "id": "link_url",
-              "label": "Link URL"
-            },
-            {
-              "type": "text",
-              "id": "link_label",
-              "label": "Link Label",
-              "default": "Link"
-            },
-            {
-              "type": "image_picker",
-              "id": "block_image",
-              "label": "Image"
-            }
-          ]
-        }
-      ],
-      "presets": [
-        {
-          "name": "Featured Links",
-          "blocks": [
-            {
-              "type": "link"
-            }
-          ]
-        }
-      ]
-    }
-  {% endschema %}
+  {
+    "name": "Featured Links",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Explore our collections",
+        "label": "Heading"
+      },
+      {
+        "type": "header",
+        "content": "Button"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Shop all categories"
+      },
+      {
+        "type": "header",
+        "content": "Image Showcase"
+      },
+      {
+        "type": "image_picker",
+        "id": "default_image",
+        "label": "Default Image"
+      },
+      {
+        "type": "header",
+        "content": "Link Settings"
+      },
+      {
+        "type": "range",
+        "id": "link_text_size",
+        "default": 36,
+        "label": "Link Text Size",
+        "step": 1,
+        "min": 10,
+        "max": 40
+      },
+      {
+        "type": "color_scheme",
+        "id": "link_text_color",
+        "label": "Link Text Color"
+      },
+      {
+        "type": "select",
+        "id": "link_text_case",
+        "label": "Link Text Case",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          }
+        ]
+      },
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "link",
+        "settings": [
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL"
+          },
+          {
+            "type": "text",
+            "id": "link_label",
+            "label": "Link Label",
+            "default": "Link"
+          },
+          {
+            "type": "image_picker",
+            "id": "block_image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Links",
+        "blocks": [
+          {
+            "type": "link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,148 @@
+/* general */
+.section__featured-links {
+  max-width: 1600px;
+  /* margin: 0 auto; */
+  padding: 60px 0;
+}
+
+.section__featured-links .text_links h2 {
+  margin-bottom: 40px;
+}
+
+.link__button {
+  margin-top: 40px;
+}
+
+.link__item:not(.link__button) {
+  margin-bottom: 20px;
+}
+  
+.link__text {
+  text-decoration: none;
+  line-height: 1em;
+  opacity: .7;
+  transition: .3s ease;
+}
+.link__item:hover .link__text {
+  opacity: 1;
+}
+
+.link__button-text {
+  padding: 16px 28px;
+}
+
+.link__button-text.button:after {
+  box-shadow: none !important;
+}
+
+/* additional featyre */
+.links__uppercase .link__text {
+  text-transform: uppercase;
+}
+
+.links__lowercase .link__text {
+  text-transform: lowercase;
+}
+
+.links__default .link__text {
+  text-transform: none;
+}
+
+.links__capitalize .link__text {
+  text-transform: capitalize;
+}
+
+
+/* mobile */
+@media (max-width: 720px) {
+  .section__featured-links {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .links__image-desktop {
+    display: none;
+  }
+  
+  .link__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .link__image-outer-mobile img,
+  .link__image-outer-mobile svg {
+    height: 100%;
+    width: auto;
+    border-radius: 8px;
+  }
+
+  .link__image-outer-mobile {
+    display: flex;
+  }
+  
+  .link__button-text {
+    border-radius: 8px;
+  }
+  
+  .link__image-desktop-container {
+    display: none;
+  }
+}
+
+/* desktop */
+
+@media (min-width: 720px) {
+  .section__featured-links {
+    margin-left: 40px;
+    margin-right: 40px;
+    width: calc(100% - 80px);
+    display: flex;
+    align-items: center;
+  }
+  
+  .text_links {
+    width: 60%;
+    padding-right: 48px;
+  }
+  
+  .link__image-outer-mobile {
+    display: none;
+  }
+  
+  .link__image-desktop-container {
+    width: 40%;
+    position: relative;
+  }
+
+  .link__image-desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  .link__image-desktop.active {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .link__image-desktop img, .link__image-desktop svg, .default-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+}
+
+.hidden-1 {
+  visibility: hidden;
+}

@@ -59,7 +59,7 @@
       ],
       "settings": {
         "heading": "Explore our collections",
-        "button_url": "",
+        "button_url": "shopify://collections/bedroom",
         "button_label": "Shop all categories",
         "default_image": "shopify://shop_images/hugsy.jpg",
         "link_text_size": 36,

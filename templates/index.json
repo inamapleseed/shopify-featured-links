@@ -41,13 +41,21 @@
             "link_label": "Accessories",
             "block_image": "shopify://shop_images/blue_french_horn.webp"
           }
+        },
+        "link_kj7BWj": {
+          "type": "link",
+          "settings": {
+            "link_url": "shopify://collections/friends",
+            "link_label": "Sale"
+          }
         }
       },
       "block_order": [
         "link_eTzHgY",
         "link_PWGQTz",
         "link_Tfqpx7",
-        "link_AFWVX6"
+        "link_AFWVX6",
+        "link_kj7BWj"
       ],
       "settings": {
         "heading": "Explore our collections",

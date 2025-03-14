@@ -14,7 +14,6 @@
       "blocks": {
         "link_eTzHgY": {
           "type": "link",
-          "disabled": true,
           "settings": {
             "link_url": "shopify://collections/himym",
             "link_label": "Tops",

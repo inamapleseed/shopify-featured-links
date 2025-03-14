@@ -1,7 +1,6 @@
 /* general */
 .section__featured-links {
   max-width: 1600px;
-  margin: 0 auto;
   padding: 60px 0;
 }
 
@@ -95,8 +94,9 @@
 
 @media (min-width: 720px) {
   .section__featured-links {
-    margin-left: 40px;
-    margin-right: 40px;
+    /* margin-left: 40px;
+    margin-right: 40px; */
+    margin: auto;
     width: calc(100% - 80px);
     display: flex;
     align-items: center;

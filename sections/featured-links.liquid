@@ -1,0 +1,116 @@
+{% schema %}
+    {
+      "name": "Featured Links",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Header"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Explore our collections",
+          "label": "Heading"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop all categories"
+        },
+        {
+          "type": "header",
+          "content": "Image Showcase"
+        },
+        {
+          "type": "image_picker",
+          "id": "default_image",
+          "label": "Default Image"
+        },
+        {
+          "type": "header",
+          "content": "Link Settings"
+        },
+        {
+          "type": "range",
+          "id": "link_text_size",
+          "default": 36,
+          "label": "Link Text Size",
+          "step": 1,
+          "min": 10,
+          "max": 40
+        },
+        {
+          "type": "color_scheme",
+          "id": "link_text_color",
+          "label": "Link Text Color"
+        },
+        {
+          "type": "select",
+          "id": "link_text_case",
+          "label": "Link Text Case",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            },
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "type": "link",
+          "name": "link",
+          "settings": [
+            {
+              "type": "url",
+              "id": "link_url",
+              "label": "Link URL"
+            },
+            {
+              "type": "text",
+              "id": "link_label",
+              "label": "Link Label",
+              "default": "Link"
+            },
+            {
+              "type": "image_picker",
+              "id": "block_image",
+              "label": "Image"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Featured Links",
+          "blocks": [
+            {
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}

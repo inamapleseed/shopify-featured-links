@@ -9,62 +9,49 @@
  */
 {
   "sections": {
-    "multicolumn": {
-      "type": "multicolumn",
+    "featured_links_jVJfJG": {
+      "type": "featured-links",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "link_eTzHgY": {
+          "type": "link",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "link_url": "shopify://collections/himym",
+            "link_label": "Tops",
+            "block_image": "shopify://shop_images/yellow_umbrella.jpg"
           }
         },
-        "column2": {
-          "type": "column",
+        "link_PWGQTz": {
+          "type": "link",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "link_url": "",
+            "link_label": "Bottoms"
           }
         },
-        "column3": {
-          "type": "column",
+        "link_Tfqpx7": {
+          "type": "link",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "link_url": "",
+            "link_label": "Link"
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "link_eTzHgY",
+        "link_PWGQTz",
+        "link_Tfqpx7"
       ],
-      "disabled": true,
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Explore our collections",
+        "button_url": "",
+        "button_label": "Shop all categories",
+        "default_image": "shopify://shop_images/hugsy.jpg",
+        "link_text_size": 36,
+        "link_text_color": "",
+        "link_text_case": "default"
       }
     }
   },
   "order": [
-    "multicolumn"
+    "featured_links_jVJfJG"
   ]
 }

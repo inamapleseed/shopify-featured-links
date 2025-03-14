@@ -64,7 +64,7 @@
         "default_image": "shopify://shop_images/hugsy.jpg",
         "link_text_size": 36,
         "link_text_color": "",
-        "link_text_case": "default"
+        "link_text_case": "uppercase"
       }
     }
   },
